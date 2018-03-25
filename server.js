@@ -12,5 +12,8 @@ var socket = require('socket.io')
 var io = socket(server)
 
 io.sockets.on('connection', socket => {
-  console.log(socket)
+  // server recebe dados do mouse e manda de volta todos os outros
+  socket.on('draw', data => {
+    socket.broadcast.emit('draw', data)
+  })
 })
