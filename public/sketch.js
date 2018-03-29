@@ -14,17 +14,19 @@ function draw() {
 }
 
 function externalDraw(data) {
-  fill(127, 15, 127);
-  noStroke();
-  ellipse(data.x, data.y, 10, 10);
+  stroke(127, 15, 127);
+  strokeWeight(10);
+  line(data.px, data.py, data.x, data.y);
 }
 
 function mouseDragged() {
-  fill(15, 127, 127);
-  noStroke();
-  ellipse(mouseX, mouseY, 10, 10);
+  stroke(15, 127, 127);
+  strokeWeight(10);
+  line(pmouseX, pmouseY, mouseX, mouseY);
 
   var data = {
+    px: pmouseX,
+    py: pmouseY,
     x: mouseX,
     y: mouseY
   }
